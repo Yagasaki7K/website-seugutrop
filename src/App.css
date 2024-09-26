@@ -1,0 +1,43 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 700px;
+  height: 300px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  background: transparent;
+}
+
+button {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: 'Space Mono', monospace;
+  color: #ccc;
+  cursor: pointer;
+  transition: 1s;
+}
+
+button:hover {
+  background: #ccc;
+  color: #000;
+}

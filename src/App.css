@@ -1,43 +1,133 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: min(1100px, 100%);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.5vw, 2rem);
+  padding: clamp(1.5rem, 2vw + 0.5rem, 3rem);
+  background: rgba(36, 36, 36, 0.75);
+  border: 1px solid #2f2f2f;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hero {
+  display: grid;
+  gap: 0.35rem;
   text-align: center;
 }
 
+h1 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 3rem);
+  line-height: 1.1;
+}
+
 p {
-  font-size: 13px;
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.2rem);
   font-family: 'Space Mono', monospace;
   color: #ccc;
-  margin-bottom: 1rem;
+  margin: 0;
+}
+
+p.lead {
+  color: #e4e4e4;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9bdcff;
+}
+
+.converter,
+.result {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.label {
+  font-family: 'Space Mono', monospace;
+  color: #9bdcff;
+  font-size: 0.95rem;
 }
 
 textarea {
-  width: 700px;
-  height: 300px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  resize: none;
+  width: 100%;
+  min-height: clamp(180px, 45vh, 360px);
+  padding: 12px 16px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: vertical;
   outline: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
+  color: #f5f5f5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-button {
-  background: transparent;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px 10px;
-  font-size: 14px;
+textarea:focus-visible {
+  border-color: #9bdcff;
+  box-shadow: 0 0 0 3px rgba(155, 220, 255, 0.2);
+}
+
+.output {
+  min-height: 96px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px dashed #3a3a3a;
+  background: rgba(255, 255, 255, 0.02);
+  color: #f5f5f5;
+  text-align: left;
+  word-break: break-word;
+}
+
+button.copy {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #9bdcff, #60b2e3);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 1rem;
   font-family: 'Space Mono', monospace;
-  color: #ccc;
+  color: #0e1a24;
   cursor: pointer;
-  transition: 1s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-  background: #ccc;
-  color: #000;
+button.copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(96, 178, 227, 0.35);
+}
+
+button.copy:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 1rem;
+  }
+
+  .layout {
+    padding: 1.25rem;
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .layout {
+    gap: 2.5rem;
+    padding: 3rem;
+  }
+
+  .output,
+  textarea {
+    font-size: 1.05rem;
+  }
 }
